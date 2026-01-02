@@ -163,7 +163,7 @@ const App: React.FC = () => {
              <div className="w-64 h-64 md:w-96 md:h-96 bg-white/30 blob-shape absolute -z-10 animate-[pulse_6s_ease-in-out_infinite]"></div>
              <div className="relative">
                 <img 
-                  src="assets/images/sections/hero-environmental.jpg" 
+                  src="assets/images/hero-environmental.jpg" 
                   alt="Environmental Tech" 
                   className="rounded-3xl shadow-2xl w-full max-w-sm md:max-w-md transform rotate-2 hover:rotate-0 transition-transform duration-700 object-cover aspect-square"
                 />
@@ -241,7 +241,7 @@ const App: React.FC = () => {
               <div className="relative group">
                 <div className="absolute -inset-4 bg-its-soft-blue/30 rounded-[3rem] blur-xl transition-all group-hover:bg-its-aqua/40"></div>
                 <img 
-                  src="assets/images/sections/about-waste-management.jpg" 
+                  src="assets/images/about-waste-management.jpg" 
                   alt="Waste Management" 
                   className="relative rounded-[2.5rem] shadow-2xl border-8 border-white w-full aspect-square object-cover"
                 />
@@ -587,8 +587,8 @@ const App: React.FC = () => {
               window.scrollTo({top: 0, behavior: 'smooth'});
             }}
           >
-            <div className="w-10 h-10 bg-its-main-blue rounded-xl flex items-center justify-center text-white shadow-lg">
-              <Droplets size={24} />
+            <div className="h-10 w-10 flex items-center justify-center">
+              <img src="assets/images/logo.png" alt="ITSWARA Logo" className="h-full w-auto object-contain" />
             </div>
             <span className="text-2xl font-fredoka font-bold text-its-dark-green tracking-tight uppercase">ITSWARA</span>
           </div>
@@ -666,8 +666,8 @@ const App: React.FC = () => {
           <div className="grid md:grid-cols-4 gap-12 items-start justify-center">
             <div className="flex flex-col items-center space-y-6">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-its-dark-green shadow-xl">
-                  <Droplets size={28} />
+                <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-xl overflow-hidden">
+                  <img src="assets/images/logo.png" alt="ITSWARA Logo" className="w-full h-full object-cover" />
                 </div>
                 <span className="text-4xl font-fredoka font-bold tracking-tight uppercase">ITS WARA</span>
               </div>
