@@ -70,6 +70,21 @@ const newsData: NewsItem[] = [
   }
 ];
 
+// Helper to get initials and colors
+const getAvatarProps = (name: string) => {
+  const initial = name.charAt(0).toUpperCase();
+  const colors = [
+    'bg-its-main-blue',
+    'bg-its-green',
+    'bg-its-dark-green',
+    'bg-its-soft-blue',
+    'bg-its-aqua'
+  ];
+  // Consistent color based on name length
+  const bgColor = colors[name.length % colors.length];
+  return { initial, bgColor };
+};
+
 const App: React.FC = () => {
   const [lang, setLang] = useState<Language>('id');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -103,20 +118,19 @@ const App: React.FC = () => {
     { name: "WALHI", icon: <Waves />, type: "Environment" },
   ];
 
-  // 12 Unique Testimonials - Total 12 distinct individuals
   const testimonialList = [
-    { text: lang === 'id' ? "IWABOT sangat membantu operasional pengangkutan sampah di perumahan kami, beneran efisien!" : "IWABOT really helps waste collection operations in our housing complex, truly efficient!", author: "Ahmad Fauzi", role: lang === 'id' ? "Ketua RW Digital" : "Digital Neighborhood Head", path: 'assets/images/avatars/avatar-1.jpg' },
-    { text: lang === 'id' ? "Lewat IWAAPP, anak-anak muda di sini jadi lebih melek soal pemilahan sampah organik dan anorganik." : "Through IWAAPP, the youth here are becoming more aware of organic and inorganic waste sorting.", author: "Maya Indah", role: lang === 'id' ? "Aktivis Millennial" : "Millennial Activist", path: 'assets/images/avatars/avatar-2.jpg' },
-    { text: lang === 'id' ? "Dashboard analitiknya sangat presisi untuk memonitor kualitas air sungai secara real-time." : "The analytical dashboard is very precise for monitoring river water quality in real-time.", author: "Handoko", role: lang === 'id' ? "Praktisi Lingkungan" : "Environmental Practitioner", path: 'assets/images/avatars/avatar-3.jpg' },
-    { text: lang === 'id' ? "Produk daur ulangnya punya kualitas premium, saya kaget banget waktu pertama kali beli di IWASTORE." : "The recycled products have premium quality, I was really surprised when I first bought from IWASTORE.", author: "Lestari", role: lang === 'id' ? "Eco-Shopper" : "Eco-Shopper", path: 'assets/images/avatars/avatar-4.jpg' },
-    { text: lang === 'id' ? "Respon tim Itswara sangat cepat dan solusi yang ditawarkan beneran konkret untuk masalah banjir lokal." : "The Itswara team's response is very fast and the solutions offered are truly concrete for local flood issues.", author: "Rizky", role: lang === 'id' ? "Warga Terdampak" : "Affected Resident", path: 'assets/images/avatars/avatar-5.jpg' },
-    { text: lang === 'id' ? "Misi lingkungannya beneran kerasa, bukan cuma sekedar branding atau strategi marketing semata." : "The environmental mission is truly felt, not just branding or marketing strategy.", author: "Farah", role: lang === 'id' ? "Relawan Hijau" : "Green Volunteer", path: 'assets/images/avatars/avatar-6.jpg' },
-    { text: lang === 'id' ? "Teknologi IoT yang digunakan stabil banget, sangat mempermudah kerja dinas kebersihan kota." : "The IoT technology used is very stable, greatly facilitating the work of the city sanitation department.", author: "Doni Pratama", role: lang === 'id' ? "Staf Ahli DLH" : "DLH Expert Staff", path: 'assets/images/avatars/avatar-7.jpg' },
-    { text: lang === 'id' ? "Kolaborasi yang sangat menginspirasi bagi penggiat lingkungan lokal seperti kami di daerah." : "A very inspiring collaboration for local environmental activists like us in the regions.", author: "Ratna", role: lang === 'id' ? "Pegiat Bank Sampah" : "Waste Bank Activist", path: 'assets/images/avatars/avatar-8.jpg' },
-    { text: lang === 'id' ? "Integrasi antara hardware IWABOT dan aplikasi cloud-nya sangat seamless, top banget pokoknya!" : "The integration between IWABOT hardware and its cloud app is very seamless, simply top notch!", author: "Bagus Setiawan", role: lang === 'id' ? "DevOps Engineer" : "DevOps Engineer", path: 'assets/images/avatars/avatar-9.jpg' },
-    { text: lang === 'id' ? "Kami melihat penurunan signifikan dalam waktu respon tumpukan sampah liar." : "We observed a significant decrease in response time for illegal waste piles.", author: "Susi", role: lang === 'id' ? "Kepala Kebersihan" : "Sanitation Lead", path: 'assets/images/avatars/avatar-1.jpg' },
-    { text: lang === 'id' ? "Sangat membantu dalam memetakan area rawan limbah di pesisir pantai." : "Very helpful in mapping waste-prone areas on the coastline.", author: "Bambang", role: lang === 'id' ? "Peneliti Kelautan" : "Marine Researcher", path: 'assets/images/avatars/avatar-2.jpg' },
-    { text: lang === 'id' ? "Anak-anak sekolah sangat antusias menggunakan IWAAPP untuk belajar ekosistem." : "School children are very enthusiastic about using IWAAPP to learn about ecosystems.", author: "Dewi", role: lang === 'id' ? "Guru Biologi" : "Biology Teacher", path: 'assets/images/avatars/avatar-3.jpg' },
+    { text: lang === 'id' ? "IWABOT sangat membantu operasional pengangkutan sampah di perumahan kami, beneran efisien!" : "IWABOT really helps waste collection operations in our housing complex, truly efficient!", author: "Ahmad Fauzi", role: lang === 'id' ? "Ketua RW Digital" : "Digital Neighborhood Head" },
+    { text: lang === 'id' ? "Lewat IWAAPP, anak-anak muda di sini jadi lebih melek soal pemilahan sampah organik dan anorganik." : "Through IWAAPP, the youth here are becoming more aware of organic and inorganic waste sorting.", author: "Maya Indah", role: lang === 'id' ? "Aktivis Millennial" : "Millennial Activist" },
+    { text: lang === 'id' ? "Dashboard analitiknya sangat presisi untuk memonitor kualitas air sungai secara real-time." : "The analytical dashboard is very precise for monitoring river water quality in real-time.", author: "Handoko", role: lang === 'id' ? "Praktisi Lingkungan" : "Environmental Practitioner" },
+    { text: lang === 'id' ? "Produk daur ulangnya punya kualitas premium, saya kaget banget waktu pertama kali beli di IWASTORE." : "The recycled products have premium quality, I was really surprised when I first bought from IWASTORE.", author: "Lestari", role: lang === 'id' ? "Eco-Shopper" : "Eco-Shopper" },
+    { text: lang === 'id' ? "Respon tim Itswara sangat cepat dan solusi yang ditawarkan beneran konkret untuk masalah banjir lokal." : "The Itswara team's response is very fast and the solutions offered are truly concrete for local flood issues.", author: "Rizky", role: lang === 'id' ? "Warga Terdampak" : "Affected Resident" },
+    { text: lang === 'id' ? "Misi lingkungannya beneran kerasa, bukan cuma sekedar branding atau strategi marketing semata." : "The environmental mission is truly felt, not just branding or marketing strategy.", author: "Farah", role: lang === 'id' ? "Relawan Hijau" : "Green Volunteer" },
+    { text: lang === 'id' ? "Teknologi IoT yang digunakan stabil banget, sangat mempermudah kerja dinas kebersihan kota." : "The IoT technology used is very stable, greatly facilitating the work of the city sanitation department.", author: "Doni Pratama", role: lang === 'id' ? "Staf Ahli DLH" : "DLH Expert Staff" },
+    { text: lang === 'id' ? "Kolaborasi yang sangat menginspirasi bagi penggiat lingkungan lokal seperti kami di daerah." : "A very inspiring collaboration for local environmental activists like us in the regions.", author: "Ratna", role: lang === 'id' ? "Pegiat Bank Sampah" : "Waste Bank Activist" },
+    { text: lang === 'id' ? "Integrasi antara hardware IWABOT dan aplikasi cloud-nya sangat seamless, top banget pokoknya!" : "The integration between IWABOT hardware and its cloud app is very seamless, simply top notch!", author: "Bagus Setiawan", role: lang === 'id' ? "DevOps Engineer" : "DevOps Engineer" },
+    { text: lang === 'id' ? "Kami melihat penurunan signifikan dalam waktu respon tumpukan sampah liar." : "We observed a significant decrease in response time for illegal waste piles.", author: "Susi", role: lang === 'id' ? "Kepala Kebersihan" : "Sanitation Lead" },
+    { text: lang === 'id' ? "Sangat membantu dalam memetakan area rawan limbah di pesisir pantai." : "Very helpful in mapping waste-prone areas on the coastline.", author: "Bambang", role: lang === 'id' ? "Peneliti Kelautan" : "Marine Researcher" },
+    { text: lang === 'id' ? "Anak-anak sekolah sangat antusias menggunakan IWAAPP untuk belajar ekosistem." : "School children are very enthusiastic about using IWAAPP to learn about ecosystems.", author: "Dewi", role: lang === 'id' ? "Guru Biologi" : "Biology Teacher" },
   ];
 
   const filteredNews = useMemo(() => {
@@ -392,65 +406,80 @@ const App: React.FC = () => {
               
               {/* Column 1 - Users 1-4 */}
               <div className="flex flex-col gap-8 animate-v-scroll pause-on-hover">
-                {[...testimonialList.slice(0, 4), ...testimonialList.slice(0, 4)].map((tm, i) => (
-                  <div key={i} className="bg-white p-8 rounded-[2.5rem] border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-xl transition-all group">
-                    <div className="flex text-its-main-blue mb-6">
-                      {[1,2,3,4,5].map(star => <Star key={star} size={18} fill="currentColor" className="mr-0.5" />)}
-                    </div>
-                    <p className="text-xl text-gray-700 italic font-medium leading-relaxed mb-8">
-                      "{tm.text}"
-                    </p>
-                    <div className="flex items-center gap-4">
-                      <img src={tm.path} alt={tm.author} className="w-14 h-14 rounded-full border-2 border-its-aqua shadow-sm object-cover" />
-                      <div>
-                        <p className="font-black text-its-dark-green text-lg">{tm.author}</p>
-                        <p className="text-sm font-bold text-gray-400">{tm.role}</p>
+                {[...testimonialList.slice(0, 4), ...testimonialList.slice(0, 4)].map((tm, i) => {
+                  const { initial, bgColor } = getAvatarProps(tm.author);
+                  return (
+                    <div key={i} className="bg-white p-8 rounded-[2.5rem] border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-xl transition-all group">
+                      <div className="flex text-its-main-blue mb-6">
+                        {[1,2,3,4,5].map(star => <Star key={star} size={18} fill="currentColor" className="mr-0.5" />)}
+                      </div>
+                      <p className="text-xl text-gray-700 italic font-medium leading-relaxed mb-8">
+                        "{tm.text}"
+                      </p>
+                      <div className="flex items-center gap-4">
+                        <div className={`w-14 h-14 rounded-full flex items-center justify-center text-white font-black text-xl shadow-sm ${bgColor}`}>
+                          {initial}
+                        </div>
+                        <div>
+                          <p className="font-black text-its-dark-green text-lg">{tm.author}</p>
+                          <p className="text-sm font-bold text-gray-400">{tm.role}</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
 
               {/* Column 2 - Users 5-8 (Faster) */}
               <div className="hidden md:flex flex-col gap-8 animate-v-scroll-fast pause-on-hover mt-[-150px]">
-                {[...testimonialList.slice(4, 8), ...testimonialList.slice(4, 8)].map((tm, i) => (
-                  <div key={i} className="bg-white p-8 rounded-[2.5rem] border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-xl transition-all group">
-                    <div className="flex text-its-main-blue mb-6">
-                      {[1,2,3,4,5].map(star => <Star key={star} size={18} fill="currentColor" className="mr-0.5" />)}
-                    </div>
-                    <p className="text-xl text-gray-700 italic font-medium leading-relaxed mb-8">
-                      "{tm.text}"
-                    </p>
-                    <div className="flex items-center gap-4">
-                      <img src={tm.path} alt={tm.author} className="w-14 h-14 rounded-full border-2 border-its-aqua shadow-sm object-cover" />
-                      <div>
-                        <p className="font-black text-its-dark-green text-lg">{tm.author}</p>
-                        <p className="text-sm font-bold text-gray-400">{tm.role}</p>
+                {[...testimonialList.slice(4, 8), ...testimonialList.slice(4, 8)].map((tm, i) => {
+                  const { initial, bgColor } = getAvatarProps(tm.author);
+                  return (
+                    <div key={i} className="bg-white p-8 rounded-[2.5rem] border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-xl transition-all group">
+                      <div className="flex text-its-main-blue mb-6">
+                        {[1,2,3,4,5].map(star => <Star key={star} size={18} fill="currentColor" className="mr-0.5" />)}
+                      </div>
+                      <p className="text-xl text-gray-700 italic font-medium leading-relaxed mb-8">
+                        "{tm.text}"
+                      </p>
+                      <div className="flex items-center gap-4">
+                        <div className={`w-14 h-14 rounded-full flex items-center justify-center text-white font-black text-xl shadow-sm ${bgColor}`}>
+                          {initial}
+                        </div>
+                        <div>
+                          <p className="font-black text-its-dark-green text-lg">{tm.author}</p>
+                          <p className="text-sm font-bold text-gray-400">{tm.role}</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
 
               {/* Column 3 - Users 9-12 (Slower) */}
               <div className="hidden lg:flex flex-col gap-8 animate-v-scroll-slow pause-on-hover mt-[-50px]">
-                {[...testimonialList.slice(8, 12), ...testimonialList.slice(8, 12)].map((tm, i) => (
-                  <div key={i} className="bg-white p-8 rounded-[2.5rem] border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-xl transition-all group">
-                    <div className="flex text-its-main-blue mb-6">
-                      {[1,2,3,4,5].map(star => <Star key={star} size={18} fill="currentColor" className="mr-0.5" />)}
-                    </div>
-                    <p className="text-xl text-gray-700 italic font-medium leading-relaxed mb-8">
-                      "{tm.text}"
-                    </p>
-                    <div className="flex items-center gap-4">
-                      <img src={tm.path} alt={tm.author} className="w-14 h-14 rounded-full border-2 border-its-aqua shadow-sm object-cover" />
-                      <div>
-                        <p className="font-black text-its-dark-green text-lg">{tm.author}</p>
-                        <p className="text-sm font-bold text-gray-400">{tm.role}</p>
+                {[...testimonialList.slice(8, 12), ...testimonialList.slice(8, 12)].map((tm, i) => {
+                  const { initial, bgColor } = getAvatarProps(tm.author);
+                  return (
+                    <div key={i} className="bg-white p-8 rounded-[2.5rem] border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-xl transition-all group">
+                      <div className="flex text-its-main-blue mb-6">
+                        {[1,2,3,4,5].map(star => <Star key={star} size={18} fill="currentColor" className="mr-0.5" />)}
+                      </div>
+                      <p className="text-xl text-gray-700 italic font-medium leading-relaxed mb-8">
+                        "{tm.text}"
+                      </p>
+                      <div className="flex items-center gap-4">
+                        <div className={`w-14 h-14 rounded-full flex items-center justify-center text-white font-black text-xl shadow-sm ${bgColor}`}>
+                          {initial}
+                        </div>
+                        <div>
+                          <p className="font-black text-its-dark-green text-lg">{tm.author}</p>
+                          <p className="text-sm font-bold text-gray-400">{tm.role}</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
 
             </div>
