@@ -68,13 +68,27 @@
         -ms-overflow-style: none;
         scrollbar-width: none;
       }
-      .product-line {
-        background: linear-gradient(90deg, transparent, #9CEAEF, transparent);
-        height: 2px;
-        width: 100%;
-        position: absolute;
-        top: 50%;
-        z-index: 0;
+      .mask-v-gradient {
+        mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+      }
+
+      /* Vertical Scroll Marquee */
+      @keyframes vertical-scroll {
+        from { transform: translateY(0); }
+        to { transform: translateY(-50%); }
+      }
+
+      .animate-v-scroll {
+        animation: vertical-scroll 30s linear infinite;
+      }
+      .animate-v-scroll-fast {
+        animation: vertical-scroll 20s linear infinite;
+      }
+      .animate-v-scroll-slow {
+        animation: vertical-scroll 45s linear infinite;
+      }
+      .pause-on-hover:hover {
+        animation-play-state: paused;
       }
     </style>
 <script type="importmap">

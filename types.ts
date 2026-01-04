@@ -87,6 +87,7 @@ export interface Translation {
   };
   testimonials: {
     title: string;
+    description: string;
     t1: string;
     t1Author: string;
     t2: string;
@@ -188,9 +189,10 @@ export const translations: Record<Language, Translation> = {
     },
     testimonials: {
       title: 'Kata Mereka',
+      description: 'Berbagai cerita dari mitra dan pengguna yang bersama ITSWARA membangun perubahan melalui teknologi lingkungan yang berkelanjutan.',
       t1: 'Itswara membantu komunitas kami mengelola sampah dengan lebih terstruktur dan berdampak nyata.',
       t1Author: 'Koordinator Komunitas Lingkungan',
-      t2: 'Solusi air bersih yang ditawarkan sangat inovatif dan mudah diimplementasikan di desa kami.',
+      t2: 'Solusi air bersih yang ditawarkan sangat inovatif and mudah diimplementasikan di desa kami.',
       t2Author: 'Relawan Sosial',
     },
     faq: {
@@ -287,6 +289,7 @@ export const translations: Record<Language, Translation> = {
     },
     testimonials: {
       title: 'What They Say',
+      description: 'Various stories from partners and users working together with ITSWARA to build change through sustainable environmental technology.',
       t1: 'Itswara helped our community manage waste more structurally with a real impact.',
       t1Author: 'Eco-Community Coordinator',
       t2: 'The clean water solutions offered are very innovative and easy to implement in our village.',

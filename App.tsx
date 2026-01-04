@@ -27,7 +27,8 @@ import {
   Waves,
   Search,
   Calendar,
-  ChevronLeft
+  ChevronLeft,
+  Star
 } from 'lucide-react';
 
 const newsData: NewsItem[] = [
@@ -102,6 +103,22 @@ const App: React.FC = () => {
     { name: "WALHI", icon: <Waves />, type: "Environment" },
   ];
 
+  // 12 Unique Testimonials - Total 12 distinct individuals
+  const testimonialList = [
+    { text: lang === 'id' ? "IWABOT sangat membantu operasional pengangkutan sampah di perumahan kami, beneran efisien!" : "IWABOT really helps waste collection operations in our housing complex, truly efficient!", author: "Ahmad Fauzi", role: lang === 'id' ? "Ketua RW Digital" : "Digital Neighborhood Head", path: 'assets/images/avatars/avatar-1.jpg' },
+    { text: lang === 'id' ? "Lewat IWAAPP, anak-anak muda di sini jadi lebih melek soal pemilahan sampah organik dan anorganik." : "Through IWAAPP, the youth here are becoming more aware of organic and inorganic waste sorting.", author: "Maya Indah", role: lang === 'id' ? "Aktivis Millennial" : "Millennial Activist", path: 'assets/images/avatars/avatar-2.jpg' },
+    { text: lang === 'id' ? "Dashboard analitiknya sangat presisi untuk memonitor kualitas air sungai secara real-time." : "The analytical dashboard is very precise for monitoring river water quality in real-time.", author: "Handoko", role: lang === 'id' ? "Praktisi Lingkungan" : "Environmental Practitioner", path: 'assets/images/avatars/avatar-3.jpg' },
+    { text: lang === 'id' ? "Produk daur ulangnya punya kualitas premium, saya kaget banget waktu pertama kali beli di IWASTORE." : "The recycled products have premium quality, I was really surprised when I first bought from IWASTORE.", author: "Lestari", role: lang === 'id' ? "Eco-Shopper" : "Eco-Shopper", path: 'assets/images/avatars/avatar-4.jpg' },
+    { text: lang === 'id' ? "Respon tim Itswara sangat cepat dan solusi yang ditawarkan beneran konkret untuk masalah banjir lokal." : "The Itswara team's response is very fast and the solutions offered are truly concrete for local flood issues.", author: "Rizky", role: lang === 'id' ? "Warga Terdampak" : "Affected Resident", path: 'assets/images/avatars/avatar-5.jpg' },
+    { text: lang === 'id' ? "Misi lingkungannya beneran kerasa, bukan cuma sekedar branding atau strategi marketing semata." : "The environmental mission is truly felt, not just branding or marketing strategy.", author: "Farah", role: lang === 'id' ? "Relawan Hijau" : "Green Volunteer", path: 'assets/images/avatars/avatar-6.jpg' },
+    { text: lang === 'id' ? "Teknologi IoT yang digunakan stabil banget, sangat mempermudah kerja dinas kebersihan kota." : "The IoT technology used is very stable, greatly facilitating the work of the city sanitation department.", author: "Doni Pratama", role: lang === 'id' ? "Staf Ahli DLH" : "DLH Expert Staff", path: 'assets/images/avatars/avatar-7.jpg' },
+    { text: lang === 'id' ? "Kolaborasi yang sangat menginspirasi bagi penggiat lingkungan lokal seperti kami di daerah." : "A very inspiring collaboration for local environmental activists like us in the regions.", author: "Ratna", role: lang === 'id' ? "Pegiat Bank Sampah" : "Waste Bank Activist", path: 'assets/images/avatars/avatar-8.jpg' },
+    { text: lang === 'id' ? "Integrasi antara hardware IWABOT dan aplikasi cloud-nya sangat seamless, top banget pokoknya!" : "The integration between IWABOT hardware and its cloud app is very seamless, simply top notch!", author: "Bagus Setiawan", role: lang === 'id' ? "DevOps Engineer" : "DevOps Engineer", path: 'assets/images/avatars/avatar-9.jpg' },
+    { text: lang === 'id' ? "Kami melihat penurunan signifikan dalam waktu respon tumpukan sampah liar." : "We observed a significant decrease in response time for illegal waste piles.", author: "Susi", role: lang === 'id' ? "Kepala Kebersihan" : "Sanitation Lead", path: 'assets/images/avatars/avatar-1.jpg' },
+    { text: lang === 'id' ? "Sangat membantu dalam memetakan area rawan limbah di pesisir pantai." : "Very helpful in mapping waste-prone areas on the coastline.", author: "Bambang", role: lang === 'id' ? "Peneliti Kelautan" : "Marine Researcher", path: 'assets/images/avatars/avatar-2.jpg' },
+    { text: lang === 'id' ? "Anak-anak sekolah sangat antusias menggunakan IWAAPP untuk belajar ekosistem." : "School children are very enthusiastic about using IWAAPP to learn about ecosystems.", author: "Dewi", role: lang === 'id' ? "Guru Biologi" : "Biology Teacher", path: 'assets/images/avatars/avatar-3.jpg' },
+  ];
+
   const filteredNews = useMemo(() => {
     let result = newsData.filter(news => {
       const matchesSearch = news.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
@@ -163,7 +180,7 @@ const App: React.FC = () => {
              <div className="w-64 h-64 md:w-96 md:h-96 bg-white/30 blob-shape absolute -z-10 animate-[pulse_6s_ease-in-out_infinite]"></div>
              <div className="relative">
                 <img 
-                  src="assets/images/hero-environmental.jpg" 
+                  src="assets/images/sections/hero-environmental.jpg" 
                   alt="Environmental Tech" 
                   className="rounded-3xl shadow-2xl w-full max-w-sm md:max-w-md transform rotate-2 hover:rotate-0 transition-transform duration-700 object-cover aspect-square"
                 />
@@ -241,7 +258,7 @@ const App: React.FC = () => {
               <div className="relative group">
                 <div className="absolute -inset-4 bg-its-soft-blue/30 rounded-[3rem] blur-xl transition-all group-hover:bg-its-aqua/40"></div>
                 <img 
-                  src="assets/images/about-waste-management.jpg" 
+                  src="assets/images/sections/about-waste-management.jpg" 
                   alt="Waste Management" 
                   className="relative rounded-[2.5rem] shadow-2xl border-8 border-white w-full aspect-square object-cover"
                 />
@@ -356,33 +373,87 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-24 bg-white overflow-hidden">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black text-its-dark-green">{t.testimonials.title}</h2>
+      {/* Testimonials Wall of Love */}
+      <section className="py-24 bg-white overflow-hidden relative">
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center mb-16 max-w-4xl mx-auto">
+            <h2 className="text-4xl md:text-6xl font-black text-its-dark-green mb-6">
+              {t.testimonials.title}
+            </h2>
+            <div className="flex flex-col md:flex-row justify-center items-center gap-4 text-its-main-blue font-bold text-lg leading-relaxed px-4">
+              <div className="hidden md:block w-16 h-px bg-its-main-blue/30"></div>
+              <p className="max-w-2xl">{t.testimonials.description}</p>
+              <div className="hidden md:block w-16 h-px bg-its-main-blue/30"></div>
+            </div>
           </div>
-          <div className="flex overflow-x-auto pb-10 gap-8 scroll-smooth no-scrollbar snap-x">
-             {[
-               { text: t.testimonials.t1, author: t.testimonials.t1Author, path: 'assets/images/avatars/avatar-1.jpg' },
-               { text: t.testimonials.t2, author: t.testimonials.t2Author, path: 'assets/images/avatars/avatar-2.jpg' }
-             ].map((tm, i) => (
-               <div key={i} className="min-w-[300px] md:min-w-[450px] snap-center bg-its-aqua/10 p-10 rounded-[2.5rem] border border-its-aqua/20 relative">
-                  <div className="absolute -top-6 -left-2 text-its-main-blue/20">
-                    <Sparkles size={100} />
-                  </div>
-                  <p className="text-xl md:text-2xl text-gray-700 italic mb-8 font-medium leading-relaxed relative z-10">"{tm.text}"</p>
-                  <div className="flex items-center gap-4">
-                    <img src={tm.path} alt="Avatar" className="w-14 h-14 rounded-full border-4 border-white shadow-md object-cover" />
-                    <div>
-                      <p className="font-black text-its-dark-green">{tm.author}</p>
-                      <div className="flex text-yellow-400">
-                        {[1,2,3,4,5].map(star => <span key={star}>★</span>)}
+
+          <div className="h-[700px] overflow-hidden relative mask-v-gradient">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 h-full">
+              
+              {/* Column 1 - Users 1-4 */}
+              <div className="flex flex-col gap-8 animate-v-scroll pause-on-hover">
+                {[...testimonialList.slice(0, 4), ...testimonialList.slice(0, 4)].map((tm, i) => (
+                  <div key={i} className="bg-white p-8 rounded-[2.5rem] border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-xl transition-all group">
+                    <div className="flex text-its-main-blue mb-6">
+                      {[1,2,3,4,5].map(star => <Star key={star} size={18} fill="currentColor" className="mr-0.5" />)}
+                    </div>
+                    <p className="text-xl text-gray-700 italic font-medium leading-relaxed mb-8">
+                      "{tm.text}"
+                    </p>
+                    <div className="flex items-center gap-4">
+                      <img src={tm.path} alt={tm.author} className="w-14 h-14 rounded-full border-2 border-its-aqua shadow-sm object-cover" />
+                      <div>
+                        <p className="font-black text-its-dark-green text-lg">{tm.author}</p>
+                        <p className="text-sm font-bold text-gray-400">{tm.role}</p>
                       </div>
                     </div>
                   </div>
-               </div>
-             ))}
+                ))}
+              </div>
+
+              {/* Column 2 - Users 5-8 (Faster) */}
+              <div className="hidden md:flex flex-col gap-8 animate-v-scroll-fast pause-on-hover mt-[-150px]">
+                {[...testimonialList.slice(4, 8), ...testimonialList.slice(4, 8)].map((tm, i) => (
+                  <div key={i} className="bg-white p-8 rounded-[2.5rem] border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-xl transition-all group">
+                    <div className="flex text-its-main-blue mb-6">
+                      {[1,2,3,4,5].map(star => <Star key={star} size={18} fill="currentColor" className="mr-0.5" />)}
+                    </div>
+                    <p className="text-xl text-gray-700 italic font-medium leading-relaxed mb-8">
+                      "{tm.text}"
+                    </p>
+                    <div className="flex items-center gap-4">
+                      <img src={tm.path} alt={tm.author} className="w-14 h-14 rounded-full border-2 border-its-aqua shadow-sm object-cover" />
+                      <div>
+                        <p className="font-black text-its-dark-green text-lg">{tm.author}</p>
+                        <p className="text-sm font-bold text-gray-400">{tm.role}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Column 3 - Users 9-12 (Slower) */}
+              <div className="hidden lg:flex flex-col gap-8 animate-v-scroll-slow pause-on-hover mt-[-50px]">
+                {[...testimonialList.slice(8, 12), ...testimonialList.slice(8, 12)].map((tm, i) => (
+                  <div key={i} className="bg-white p-8 rounded-[2.5rem] border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-xl transition-all group">
+                    <div className="flex text-its-main-blue mb-6">
+                      {[1,2,3,4,5].map(star => <Star key={star} size={18} fill="currentColor" className="mr-0.5" />)}
+                    </div>
+                    <p className="text-xl text-gray-700 italic font-medium leading-relaxed mb-8">
+                      "{tm.text}"
+                    </p>
+                    <div className="flex items-center gap-4">
+                      <img src={tm.path} alt={tm.author} className="w-14 h-14 rounded-full border-2 border-its-aqua shadow-sm object-cover" />
+                      <div>
+                        <p className="font-black text-its-dark-green text-lg">{tm.author}</p>
+                        <p className="text-sm font-bold text-gray-400">{tm.role}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+            </div>
           </div>
         </div>
       </section>
@@ -587,8 +658,8 @@ const App: React.FC = () => {
               window.scrollTo({top: 0, behavior: 'smooth'});
             }}
           >
-            <div className="h-10 w-10 flex items-center justify-center">
-              <img src="assets/images/logo.png" alt="ITSWARA Logo" className="h-full w-auto object-contain" />
+            <div className="w-10 h-10 bg-its-main-blue rounded-xl flex items-center justify-center shadow-lg overflow-hidden">
+              <img src="assets/images/branding/logo.png" alt="ITSWARA Logo" className="w-full h-full object-cover" />
             </div>
             <span className="text-2xl font-fredoka font-bold text-its-dark-green tracking-tight uppercase">ITSWARA</span>
           </div>
@@ -667,7 +738,7 @@ const App: React.FC = () => {
             <div className="flex flex-col items-center space-y-6">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-xl overflow-hidden">
-                  <img src="assets/images/logo.png" alt="ITSWARA Logo" className="w-full h-full object-cover" />
+                  <img src="assets/images/branding/logo.png" alt="ITSWARA Logo" className="w-full h-full object-cover" />
                 </div>
                 <span className="text-4xl font-fredoka font-bold tracking-tight uppercase">ITS WARA</span>
               </div>
