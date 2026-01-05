@@ -47,18 +47,37 @@ export interface Translation {
   };
   products: {
     title: string;
+    subtitle: string;
     p1Name: string;
     p1Desc: string;
     p1Tag: string;
+    p1CTA: string;
     p2Name: string;
     p2Desc: string;
     p2Tag: string;
+    p2CTA: string;
+    p2Hint: string;
     p3Name: string;
     p3Desc: string;
     p3Tag: string;
+    p3CTA: string;
     p4Name: string;
     p4Desc: string;
     p4Tag: string;
+    p4CTA: string;
+    featureLabel: string;
+    crossSellTitle: string;
+    galleryTitle: string;
+    storePricePrefix: string;
+    appDescLong: string;
+    botDescLong: string;
+    analyticsDescLong: string;
+    storeDescLong: string;
+    backLabel: string;
+    botDeepDiveTitle: string;
+    botDeepDiveDesc: string;
+    botDeepDiveCTA: string;
+    storeRedeemHint: string;
   };
   news: {
     headerTitle: string;
@@ -123,20 +142,20 @@ export const translations: Record<Language, Translation> = {
   id: {
     nav: { home: 'Beranda', about: 'Tentang', vision: 'Visi', services: 'Produk', news: 'Berita', contact: 'Kontak' },
     hero: {
-      headline: 'Bersama Menjaga Air, Bersama Mengelola Sampah',
+      headline: 'Bersama Menjaga Air,\nBersama Mengelola Sampah', 
       subheadline: 'Solusi teknologi ramah lingkungan untuk masa depan yang lebih bersih dan berkelanjutan.',
-      cta1: 'Kenali Itswara',
+      cta1: 'Jelajahi ITSWARA',
       cta2: 'Hubungi Kami',
     },
     trusted: {
       title: 'Dipercaya & Didukung Oleh',
     },
     about: {
-      title: 'Kenapa Itswara Ada?',
+      title: 'Kenapa ITSWARA Ada?',
       subtitle: 'Membawa Perubahan Melalui Inovasi',
-      content: 'Kami percaya bahwa air adalah sumber kehidupan dan sampah adalah tanggung jawab kita bersama. Itswara hadir untuk menjembatani tantangan lingkungan dengan solusi teknologi yang cerdas dan inklusif.',
+      content: 'Kami percaya bahwa air adalah sumber kehidupan dan sampah adalah tanggung jawab kita bersama. ITSWARA hadir untuk menjembatani tantangan lingkungan dengan solusi teknologi yang cerdas dan inklusif.',
       beforeLabel: 'Masalah Lingkungan',
-      afterLabel: 'Solusi Itswara',
+      afterLabel: 'Solusi ITSWARA',
     },
     visionMission: {
       title: 'Arah Langkah Kami',
@@ -149,18 +168,37 @@ export const translations: Record<Language, Translation> = {
     },
     products: {
       title: 'Ekosistem Produk ITSWARA',
-      p1Name: 'IWABOT',
-      p1Desc: 'Smart Waste Monitoring Bot yang memantau level sampah secara real-time.',
+      subtitle: 'Satu Platform, Banyak Solusi Lingkungan',
+      p1Name: 'IWA-BOT',
+      p1Desc: 'Teknologi sensor dan bot untuk memantau kondisi sampah dan air secara real-time.',
       p1Tag: 'Monitoring Cerdas',
-      p2Name: 'IWAAPP',
-      p2Desc: 'Platform digital untuk pelaporan komunitas dan edukasi lingkungan.',
-      p2Tag: 'Partisipasi Digital',
-      p3Name: 'IWAANALYTICS',
-      p3Desc: 'Analisis data lingkungan untuk pengambilan keputusan yang tepat.',
+      p1CTA: 'Cek Peta →',
+      p2Name: 'IWA-APP',
+      p2Desc: 'Platform utama ITSWARA yang mengintegrasikan monitoring lingkungan, analitik data, dan ekonomi sirkular dalam satu aplikasi.',
+      p2Tag: 'Super App / Platform Utama',
+      p2CTA: 'Download di Play Store',
+      p2Hint: 'Pusat Integrasi Ekosistem',
+      p3Name: 'IWA-ANALYTICS',
+      p3Desc: 'Sistem analitik untuk mengolah data lingkungan menjadi insight dan rekomendasi.',
       p3Tag: 'Data Insight',
-      p4Name: 'IWASTORE',
-      p4Desc: 'Marketplace produk ramah lingkungan dari hasil daur ulang.',
+      p3CTA: 'Lihat Analisis →',
+      p4Name: 'IWA-STORE',
+      p4Desc: 'Marketplace produk ramah lingkungan berbasis ekonomi sirkular.',
       p4Tag: 'Eco-Marketplace',
+      p4CTA: 'Eksplor →',
+      featureLabel: 'Fitur tersedia di dalam IWA-APP',
+      crossSellTitle: 'Jelajahi Fitur Lainnya',
+      galleryTitle: 'Galeri Aplikasi',
+      storePricePrefix: 'Rp',
+      appDescLong: 'Platform super app yang menghubungkan pemantauan IoT, analisis data prediktif, dan marketplace ekonomi sirkular dalam satu genggaman digital.',
+      botDescLong: 'Teknologi pemantauan sungai dan volume sampah berbasis IoT yang aktif 24/7.',
+      analyticsDescLong: 'Ubah data mentah menjadi keputusan nyata. Gunakan wawasan prediktif untuk masa depan lingkungan yang lebih terjaga.',
+      storeDescLong: 'Marketplace produk ekonomi sirkular eksklusif untuk para penjaga lingkungan.',
+      backLabel: 'Kembali',
+      botDeepDiveTitle: 'Ingin Monitoring Lebih Detail?',
+      botDeepDiveDesc: 'Dapatkan histori data lengkap, notifikasi alert realtime, dan analisis kualitas air mendalam melalui aplikasi IWA-APP.',
+      botDeepDiveCTA: 'Buka di IWA-APP',
+      storeRedeemHint: 'Tukarkan poin IWA-APP Anda atau beli melalui aplikasi.'
     },
     news: {
       headerTitle: 'Berita & Wawasan',
@@ -175,7 +213,7 @@ export const translations: Record<Language, Translation> = {
       allTags: 'Semua Kategori'
     },
     whyUs: {
-      title: 'Kenapa Harus Itswara?',
+      title: 'Kenapa Harus ITSWARA?',
       reason1: 'Berbasis Riset Mendalam',
       reason2: 'Tim Profesional & Berpengalaman',
       reason3: 'Pendekatan Berkelanjutan',
@@ -190,15 +228,15 @@ export const translations: Record<Language, Translation> = {
     testimonials: {
       title: 'Kata Mereka',
       description: 'Berbagai cerita dari mitra dan pengguna yang bersama ITSWARA membangun perubahan melalui teknologi lingkungan yang berkelanjutan.',
-      t1: 'Itswara membantu komunitas kami mengelola sampah dengan lebih terstruktur dan berdampak nyata.',
+      t1: 'ITSWARA membantu komunitas kami mengelola sampah dengan lebih terstruktur dan berdampak nyata.',
       t1Author: 'Koordinator Komunitas Lingkungan',
       t2: 'Solusi air bersih yang ditawarkan sangat inovatif and mudah diimplementasikan di desa kami.',
       t2Author: 'Relawan Sosial',
     },
     faq: {
       title: 'Sering Ditanyakan',
-      q1: 'Apa itu Itswara?',
-      a1: 'Itswara adalah startup teknologi lingkungan yang berfokus pada pengelolaan sampah dan pelestarian air.',
+      q1: 'Apa itu ITSWARA?',
+      a1: 'ITSWARA adalah startup teknologi lingkungan yang berfokus pada pengelolaan sampah dan pelestarian air.',
       q2: 'Apakah hanya fokus pada sampah?',
       a2: 'Tidak, kami memiliki program khusus untuk keberlanjutan sumber daya air juga.',
       q3: 'Siapa yang bisa bekerja sama?',
@@ -213,30 +251,30 @@ export const translations: Record<Language, Translation> = {
     },
     footer: {
       desc: 'Membangun masa depan yang lebih hijau melalui teknologi digital dan partisipasi komunitas.',
-      rights: '© 2024 ITSWARA. Semua Hak Dilindungi.',
+      rights: '© 2026 ITSWARA. Bersama Menjaga Air, Bersama Mengelola Sampah.',
       navTitle: 'Navigasi',
       contactTitle: 'Kontak',
-      socialTitle: 'Sosial Media',
-      address: 'Jl. Aliran Sungai No. 8, Jakarta Selatan',
+      socialTitle: 'Social Media',
+      address: 'Pondok mutiara Blok Y, Sidoarjo',
     },
   },
   en: {
     nav: { home: 'Home', about: 'About', vision: 'Vision', services: 'Products', news: 'News', contact: 'Contact' },
     hero: {
       headline: 'Preserving Water Together, Managing Waste Together',
-      subheadline: 'Eco-friendly technology solutions for a cleaner and more sustainable future.',
-      cta1: 'Meet Itswara',
+      subheadline: 'Eco-friendly technology solutions for a sustainable and cleaner future.',
+      cta1: 'Meet ITSWARA',
       cta2: 'Contact Us',
     },
     trusted: {
       title: 'Trusted & Supported By',
     },
     about: {
-      title: 'Why Itswara Exists?',
+      title: 'Why ITSWARA Exists?',
       subtitle: 'Driving Change Through Innovation',
-      content: 'We believe water is the source of life and waste is our shared responsibility. Itswara exists to bridge environmental challenges with smart, inclusive technological solutions.',
+      content: 'We believe water is the source of life and waste is our shared responsibility. ITSWARA exists to bridge environmental challenges with smart, inclusive technological solutions.',
       beforeLabel: 'Environmental Issues',
-      afterLabel: 'Itswara Solution',
+      afterLabel: 'ITSWARA Solution',
     },
     visionMission: {
       title: 'Our Direction',
@@ -249,18 +287,37 @@ export const translations: Record<Language, Translation> = {
     },
     products: {
       title: 'ITSWARA Product Ecosystem',
-      p1Name: 'IWABOT',
-      p1Desc: 'Smart Waste Monitoring Bot that tracks waste levels in real-time.',
+      subtitle: 'One Platform, Many Environmental Solutions',
+      p1Name: 'IWA-BOT',
+      p1Desc: 'Sensor technology and bots to monitor waste and water conditions in real-time.',
       p1Tag: 'Smart Monitoring',
-      p2Name: 'IWAAPP',
-      p2Desc: 'Digital platform for community reporting and eco-education.',
-      p2Tag: 'Digital Participation',
-      p3Name: 'IWAANALYTICS',
-      p3Desc: 'Environmental data analytics for informed decision making.',
+      p1CTA: 'Check Map →',
+      p2Name: 'IWA-APP',
+      p2Desc: 'ITSWARA\'s core platform that integrates environmental monitoring, data analytics, and circular economy in one app.',
+      p2Tag: 'Super App / Core Platform',
+      p2CTA: 'Download on Play Store',
+      p2Hint: 'Ecosystem Integration Hub',
+      p3Name: 'IWA-ANALYTICS',
+      p3Desc: 'Analytical system to process environmental data into insights and recommendations.',
       p3Tag: 'Data Insight',
-      p4Name: 'IWASTORE',
-      p4Desc: 'Eco-friendly marketplace for recycled and sustainable goods.',
+      p3CTA: 'See Analytics →',
+      p4Name: 'IWA-STORE',
+      p4Desc: 'Eco-friendly marketplace products based on circular economy.',
       p4Tag: 'Eco-Marketplace',
+      p4CTA: 'Explore →',
+      featureLabel: 'Feature available inside IWA-APP',
+      crossSellTitle: 'Explore More Features',
+      galleryTitle: 'App Gallery',
+      storePricePrefix: 'Rp',
+      appDescLong: 'A super app platform connecting IoT monitoring, predictive data analysis, and circular economy marketplace in one digital hand.',
+      botDescLong: 'IoT-based river monitoring and waste volume technology active 24/7.',
+      analyticsDescLong: 'Turn raw data into real decisions. Use predictive insights for a more protected environmental future.',
+      storeDescLong: 'Exclusive circular economy product marketplace for environmental guardians.',
+      backLabel: 'Back',
+      botDeepDiveTitle: 'Need More Detailed Monitoring?',
+      botDeepDiveDesc: 'Get full data history, real-time alert notifications, and in-depth water quality analysis through the IWA-APP.',
+      botDeepDiveCTA: 'Open in IWA-APP',
+      storeRedeemHint: 'Redeem your IWA-APP points or purchase directly through the app.'
     },
     news: {
       headerTitle: 'News & Insights',
@@ -269,13 +326,13 @@ export const translations: Record<Language, Translation> = {
       sortBy: 'Sort by:',
       sortLatest: 'Latest',
       sortOldest: 'Oldest',
-      loadMore: 'Load More',
       readMore: 'Read More',
       back: 'Back',
+      loadMore: 'Load More',
       allTags: 'All Categories'
     },
     whyUs: {
-      title: 'Why Choose Itswara?',
+      title: 'Why Choose ITSWARA?',
       reason1: 'Evidence-Based Research',
       reason2: 'Professional & Expert Team',
       reason3: 'Sustainability Approach',
@@ -289,22 +346,22 @@ export const translations: Record<Language, Translation> = {
     },
     testimonials: {
       title: 'What They Say',
-      description: 'Various stories from partners and users working together with ITSWARA to build change through sustainable environmental technology.',
-      t1: 'Itswara helped our community manage waste more structurally with a real impact.',
+      description: 'Stories from partners and users working with ITSWARA to build change through sustainable environmental technology.',
+      t1: 'ITSWARA helped our community manage waste more structurally with real impact.',
       t1Author: 'Eco-Community Coordinator',
       t2: 'The clean water solutions offered are very innovative and easy to implement in our village.',
       t2Author: 'Social Volunteer',
     },
     faq: {
-      title: 'Frequently Asked',
-      q1: 'What is Itswara?',
-      a1: 'Itswara is an environmental tech startup focused on waste management and water preservation.',
+      title: 'Frequently Asked Questions',
+      q1: 'What is ITSWARA?',
+      a1: 'ITSWARA is an environmental tech startup focused on waste management and water preservation.',
       q2: 'Is it only focused on waste?',
-      a2: 'No, we have specific programs for water resource sustainability as well.',
+      a2: 'No, we also have specific programs for water resource sustainability.',
       q3: 'Who can collaborate?',
       a3: 'From governments and corporations to local communities.',
       q4: 'Is the program sustainable?',
-      a4: 'Yes, every initiative is designed for the long term with periodic monitoring.',
+      a4: 'Yes, every initiative is designed for long-term impact with periodic monitoring.',
     },
     contactCTA: {
       headline: 'Small Steps for Big Impact',
@@ -313,11 +370,11 @@ export const translations: Record<Language, Translation> = {
     },
     footer: {
       desc: 'Building a greener future through digital technology and community participation.',
-      rights: '© 2024 ITSWARA. All Rights Reserved.',
+      rights: '© 2026 ITSWARA. All Rights Reserved.',
       navTitle: 'Navigation',
       contactTitle: 'Contact',
       socialTitle: 'Social Media',
-      address: 'Jl. Aliran Sungai No. 8, South Jakarta',
+      address: 'Pondok mutiara Blok Y, Sidoarjo',
     },
   },
 };

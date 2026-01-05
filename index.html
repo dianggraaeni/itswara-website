@@ -28,6 +28,7 @@
               'infinite-scroll': 'infinite-scroll 40s linear infinite',
               'wave': 'wave 3s ease-in-out infinite',
               'ripple': 'ripple 1.5s ease-out infinite',
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
             },
             keyframes: {
               'infinite-scroll': {
@@ -71,6 +72,9 @@
       .mask-v-gradient {
         mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
       }
+      .mask-v-gradient-horizontal {
+        mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+      }
 
       /* Vertical Scroll Marquee */
       @keyframes vertical-scroll {
@@ -89,6 +93,15 @@
       }
       .pause-on-hover:hover {
         animation-play-state: paused;
+      }
+
+      @keyframes flow-line {
+        0% { stroke-dashoffset: 24; }
+        100% { stroke-dashoffset: 0; }
+      }
+      .animate-flow {
+        stroke-dasharray: 12 12;
+        animation: flow-line 1.5s linear infinite;
       }
     </style>
 <script type="importmap">
