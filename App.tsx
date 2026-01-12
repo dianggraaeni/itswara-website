@@ -192,7 +192,6 @@ const App: React.FC = () => {
     { text: lang === 'id' ? "Anak-anak sekolah sangat antusias menggunakan IWAAPP untuk belajar ekosistem." : "School children are very enthusiastic about using IWAAPP to learn about ecosystems.", author: "Dewi", role: lang === 'id' ? "Guru Biologi" : "Biology Teacher" },
   ];
   
-  // Effect 1: Mengatur scroll background (Kunci scroll saat modal buka)
   useEffect(() => {
     if (isMascotDetailOpen) {
       document.body.style.overflow = 'hidden';
@@ -204,23 +203,19 @@ const App: React.FC = () => {
     };
   }, [isMascotDetailOpen]);
 
-  // Effect 2: Mengatur perubahan navbar saat di-scroll
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Tambahkan ini di bagian atas komponen App (setelah state-state lainnya)
 useEffect(() => {
   window.scrollTo(0, 0);
-}, [activeTab]); // Setiap activeTab berubah, layar otomatis ke paling atas
+}, [activeTab]); 
 
   // --- Functions ---
   const navigateTo = (tab: ProductTab) => {
   setActiveTab(tab);
-  // Gunakan 'instant' atau langsung window.scrollTo(0,0) tanpa smooth
-  // agar tidak ada efek meluncur yang tertinggal dari halaman sebelumnya
   window.scrollTo({ top: 0, behavior: 'auto' }); 
   setIsMenuOpen(false);
 };
@@ -321,7 +316,7 @@ useEffect(() => {
   );
 
   const renderAppGallery = () => {
-  // Membuat array 20 gambar dari folder lokal: ./assets/app-gallery/screen-1.png dst.
+  // Array 20 gambar dari folder lokal
   const galleryImages = Array.from({ length: 20 }, (_, i) => `./assets/app-gallery/screen-${i + 1}.png`);
 
   return (
@@ -443,21 +438,18 @@ const renderHome = () => (
         </div>
 
         {/* 3. Konten Teks & Button (Z-50) */}
-        {/* 3. Konten Teks & Button (Z-50) */}
         <div className="container mx-auto px-6 relative z-50 text-center pt-20 md:pt-28">
           <div className="max-w-5xl mx-auto space-y-6">
-            {/* Headline - Mengambil dari translations */}
             <h1 className="text-4xl md:text-7xl font-black leading-tight text-white drop-shadow-[0_8px_20px_rgba(0,0,0,0.4)] whitespace-pre-line">
               {t.hero.headline}
             </h1>
 
-            {/* Subheadline - Mengambil dari translations */}
             <p className="text-xl md:text-2xl font-medium text-white/95 max-w-3xl mx-auto drop-shadow-lg">
               {t.hero.subheadline}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
-            {/* Tombol 1 - Sekarang Kontak Kami (Kiri) */}
+            {/* Tombol 1 - Kontak Kami (Kiri) */}
             <button 
               onClick={() => navigateTo('contact')} 
               className="bg-white text-its-main-blue px-10 py-4 rounded-full font-black text-lg flex items-center justify-center gap-2 hover:bg-its-aqua hover:scale-105 transition-all shadow-[0_10px_30px_rgba(0,0,0,0.3)] cursor-pointer"
@@ -465,7 +457,7 @@ const renderHome = () => (
               {t.nav.contact} <ArrowRight size={20} />
             </button>
 
-            {/* Tombol 2 - Sekarang Jelajahi/Kenali Itswara (Kanan) */}
+            {/* Tombol 2 - Jelajahi/Kenali Itswara (Kanan) */}
             <button 
               onClick={navigateToEcosystem} 
               className="bg-white/10 backdrop-blur-xl text-white border-2 border-white px-10 py-4 rounded-full font-black text-lg flex items-center justify-center gap-2 hover:bg-white hover:text-its-main-blue transition-all shadow-xl cursor-pointer"
@@ -493,7 +485,7 @@ const renderHome = () => (
         {/* 5. AREA MASKOT (Z-40) */}
         <div className="absolute inset-x-0 bottom-0 w-full h-full pointer-events-none z-40">
           
-          {/* Maskot Kiri - Pastikan pointer-events-auto ada di sini agar bisa diklik */}
+          {/* Maskot Kiri */}
           <div 
             className="absolute bottom-[8%] md:bottom-[12%] left-[-45px] md:left-[0%] w-[48%] max-w-[580px] cursor-pointer pointer-events-auto"
             style={{animation: 'gentle-x 5.5s ease-in-out infinite'}}
@@ -502,7 +494,7 @@ const renderHome = () => (
             <img src="./assets/images/maskot-kiri.png" alt="Maskot Kiri" className="w-full h-auto drop-shadow-2xl" />
           </div>
 
-          {/* Maskot Kanan (Berselancar) - Tetap none agar tidak menghalangi klik lain */}
+          {/* Maskot Kanan */}
           <div 
             className="absolute bottom-[10%] md:bottom-[15%] right-[-10px] md:right-[5%] w-[35%] max-w-[450px]"
             style={{animation: 'surf-mascot 3.2s ease-in-out infinite'}}
@@ -513,7 +505,7 @@ const renderHome = () => (
         </div>
       </section>
 
-      {/* Trust Section (Didukung & Dipercaya) */}
+      {/* Trust Section */}
       <section className="py-12 bg-white overflow-hidden border-y border-gray-100">
         <div className="container mx-auto px-6 mb-8 text-center">
            <h3 className="text-xl md:text-2xl font-black text-gray-400 uppercase tracking-[0.2em]">{t.trusted.title}</h3>
@@ -535,7 +527,7 @@ const renderHome = () => (
         </div>
       </section>
 
-      {/* About Section (Dengan Detail Before/After) */}
+      {/* About Section */}
       <section id="about" className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
@@ -614,7 +606,7 @@ const renderHome = () => (
           </div>
         </div>
 
-        {/* MASKOT (LOMPAT & INTERAKTIF) */}
+        {/* MASKOT LOMPAT */}
         <div 
           className="relative mb-10 cursor-pointer group"
           onClick={() => setIsMascotDetailOpen(true)}
@@ -680,16 +672,14 @@ const renderHome = () => (
           <div 
             className="fixed inset-0 z-[999] flex items-center justify-center p-4 bg-its-dark-green/60 backdrop-blur-md"
             onClick={() => {
-              setIsMascotDetailOpen(false); // Klik di luar area card juga menutup modal
+              setIsMascotDetailOpen(false); 
             }}
           >
-            {/* Kontainer Card (StopPropagation agar klik di dalam card tidak ikut menutup) */}
             <div 
               className="bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-[3rem] shadow-2xl relative border-8 border-its-aqua/20 animate-[fadeIn_0.3s_ease-out]"
               onClick={(e) => e.stopPropagation()} 
             >
               
-              {/* Tombol Close (Silang) */}
               <button 
                 onClick={() => setIsMascotDetailOpen(false)}
                 className="absolute top-6 right-6 w-12 h-12 bg-gray-100 hover:bg-red-500 text-gray-500 hover:text-white rounded-full flex items-center justify-center transition-all z-[1000] cursor-pointer pointer-events-auto"
@@ -899,7 +889,6 @@ const renderHome = () => (
 <section className="py-24 bg-its-soft-blue/10 overflow-hidden">
   <div className="container mx-auto px-6 max-w-6xl">
     
-    {/* --- JUDUL RATA TENGAH --- */}
     <div className="text-center mb-24">
       <h2 className="text-4xl md:text-5xl font-black text-its-dark-green mb-4">
         {t.faq.title}
@@ -931,12 +920,8 @@ const renderHome = () => (
         ))}
       </div>
 
-      {/* --- KOLOM MASKOT (5/12) - DIPERBESAR & TENGAH --- */}
       <div className="lg:col-span-5 flex flex-col items-center relative">
-        
-        {/* COMIC SPEECH BUBBLE */}
         <div className="relative z-20 animate-bounce mb-4">
-          {/* Garis Bayangan (Outline Blue) */}
           <div className="absolute inset-0 bg-its-main-blue rounded-[50%] translate-x-1.5 translate-y-1.5"></div>
           
           <div className="relative bg-white border-[4px] border-its-main-blue rounded-[50%] px-10 py-12 min-w-[340px] shadow-2xl">
@@ -945,7 +930,6 @@ const renderHome = () => (
             </p>
           </div>
 
-          {/* Ekor Bubble (Dibuat pas di tengah bawah gelembung) */}
           <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-14 h-14">
             <svg viewBox="0 0 100 100" className="w-full h-full fill-white stroke-its-main-blue stroke-[8px]">
               <path d="M 20 0 L 50 100 L 80 0 Z" />
@@ -953,7 +937,6 @@ const renderHome = () => (
           </div>
         </div>
 
-        {/* MASKOT (Ukuran Extra & Posisi Center-Up) */}
         <div className="relative -mt-20 z-10 w-full flex justify-center">
            <img 
             src="./assets/images/maskot-faq.png" 
@@ -1359,7 +1342,7 @@ const renderHome = () => (
     </div>
   );
 
-  // --- Full News View (Dengan Filter, Sort, & Detail) ---
+  // --- Full News View 
 const renderNews = () => {
     // --- View Detail Berita ---
     if (selectedNewsId && selectedNews) {
@@ -1416,7 +1399,7 @@ const renderNews = () => {
               className="group flex flex-col md:flex-row gap-8 bg-white p-6 rounded-[2.5rem] shadow-lg border border-gray-50 hover:shadow-2xl transition-all cursor-pointer" 
               onClick={() => { 
                 setSelectedNewsId(news.id); 
-                window.scrollTo({ top: 0, behavior: 'instant' }); // PERBAIKAN: Paksa scroll ke atas saat klik
+                window.scrollTo({ top: 0, behavior: 'instant' });
               }}
             >
               <div className="w-full md:w-72 h-48 overflow-hidden rounded-[2rem]"><img src={news.image} alt={news.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" /></div>
@@ -1566,7 +1549,6 @@ const renderNews = () => {
     <div className="min-h-screen text-gray-800 font-quicksand overflow-x-hidden selection:bg-its-aqua">
 {/* Navbar */}
 <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
-  /* LOGIKA: Pakai mode gelap jika sudah scroll ATAU jika tidak sedang di Beranda */
   (isScrolled || activeTab !== 'home') 
     ? 'bg-white/95 backdrop-blur-md shadow-sm py-3' 
     : 'bg-white/10 backdrop-blur-md border-b border-white/10 py-5'
@@ -1581,7 +1563,6 @@ const renderNews = () => {
         <img src="./assets/images/logo-itswara.png" alt="Logo" className="w-full h-full object-contain" />
       </div>
       <span className="text-2xl font-fredoka font-bold tracking-tight uppercase">
-        {/* Teks ITS jadi biru kalau di detail fitur/news */}
         <span className={(isScrolled || activeTab !== 'home') ? 'text-its-main-blue' : 'text-white'}>ITS</span>
         <span className={(isScrolled || activeTab !== 'home') ? 'text-its-green' : 'text-its-aqua'}>WARA</span>
       </span>
@@ -1698,14 +1679,13 @@ const renderNews = () => {
             />
           </div>
           
-          {/* Teks ITS (Biru Muda) dan WARA (Hijau Muda) */}
           <span className="text-3xl font-fredoka font-bold tracking-tight uppercase">
             <span className="text-[#A5C9E1]">ITS</span>
             <span className="text-[#A2CA67]">WARA</span>
           </span>
         </div>             
         <p className="text-white/80 text-sm leading-relaxed max-w-xs">
-          {t.footer.desc} {/* <--- Mengambil dari types.ts */}
+          {t.footer.desc} 
         </p>
       </div>
 
@@ -1768,7 +1748,7 @@ const renderNews = () => {
 
     {/* COPYRIGHT AREA */}
     <div className="mt-20 pt-8 border-t border-white/10 text-center text-white/50 font-bold uppercase tracking-widest text-[10px]">
-      {t.footer.rights} {/* <--- Akan muncul: © 2026 ITSWARA. All Rights Reserved. */}
+      {t.footer.rights} 
     </div>
   </div>
 </footer>
