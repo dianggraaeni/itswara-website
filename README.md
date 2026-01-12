@@ -1,20 +1,65 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# ITSWARA Website
 
-# Run and deploy your AI Studio app
+## Project Description
 
-This contains everything you need to run your app locally.
+This repository contains the source code for the ITSWARA company profile website. The website is built using modern frontend technologies to deliver a responsive, maintainable, and scalable web experience.
 
-View your app in AI Studio: https://ai.studio/apps/drive/1vkhWzm0pjuyZKXK4bS7Wa0RK-utxt_EP
+## Purpose
 
-## Run Locally
+The main objectives of this project are:
 
-**Prerequisites:**  Node.js
+- To provide an online company profile for ITSWARA.
+- To showcase company information, services, and relevant content.
+- To serve as a demonstrative codebase using current web development best practices.
 
+## Technology Stack
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+The project is implemented using the following primary technologies:
+
+- **React** for building the user interface.
+- **TypeScript** for static type checking and improved developer experience.
+- **Vite** as the build tool and development server for fast performance.
+
+The usage of React with TypeScript and Vite follows recommended practices for frontend development frameworks focused on performance and type safety. :contentReference[oaicite:0]{index=0}
+
+## Prerequisites
+
+Before running this project locally, ensure that the following are installed:
+
+- Node.js version 16 or higher
+- npm or yarn package manager
+
+## Installation
+
+Follow the steps below to set up the project locally:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/dianggraaeni/itswara-website.git
+
+2. Navigate into the project directory:
+
+   ```bash
+   cd itswara-website
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+## Running Locally
+
+To start the development server, run:
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+Then open your browser and navigate to the address shown in the terminal (usually [http://localhost:3000](http://localhost:3000)).
+
